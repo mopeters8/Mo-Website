@@ -15,5 +15,9 @@ router.get('/', isAuthorized, (req, res) => { //NOT /DASHBOARD BECAUSE WE ALREAD
     res.send(req.user.id+" this is under a lot of work. Come back another time.")
 });
 
+router.get('/settings', isAuthorized, (req, res) => { //NOT /DASHBOARD BECAUSE WE ALREADY REGISTERED / DASHBOARD.
+    res.send("oh you logged in my boy")
+});
+
 
 module.exports = router;
