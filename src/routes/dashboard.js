@@ -12,7 +12,13 @@ function isAuthorized(req, res, next) {
 }
 
 router.get('/', isAuthorized, (req, res) => { //NOT /DASHBOARD BECAUSE WE ALREADY REGISTERED / DASHBOARD.
-    res.send(req.user.id+" this is under a lot of work. Come back another time.")
+    res.render('dashboard', {
+        username: req.user.username,
+        useravatar: req.user.useravatar,
+        discordId: req.user.discordId,
+        discordemail: req.user.discordemail,
+        guilds: req.user.guilds
+    });
 });
 
 router.get('/settings', isAuthorized, (req, res) => { //NOT /DASHBOARD BECAUSE WE ALREADY REGISTERED / DASHBOARD.

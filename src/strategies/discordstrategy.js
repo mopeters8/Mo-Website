@@ -8,7 +8,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser(async (id, done) => {
-    const user = DiscordUser.findById(id);
+    const user = await DiscordUser.findById(id);
     if (user)
         done(null, user);
 });
@@ -22,15 +22,18 @@ passport.use(new DiscordStrategy({
     try { 
         const user = await DiscordUser.findOne({ discordId: profile.id });
         if (user) { //User exiists
-            console.log("User exists: "+user.id);
+            console.log("User exists: "+user.username);
             done(null, user); //Going to serialize user in to the request.
         } 
         else { //If user doesn't exist.
             console.log("User does not exist. Creating user...")
             const newUser = await DiscordUser.create({ //create user
                 discordId: profile.id,
-                discordUsername: profile.username,
-                discordEmail: profile.email
+                username: profile.username,
+                useravatar: profile.avatar,
+                email: profile.email,
+                guilds: profile.guilds
+
             });
             const savedUser = await newUser.save();
             done(null, savedUser); //Going to serialize user in to the request.

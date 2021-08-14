@@ -7,4 +7,23 @@ router.get('/redirect', passport.authenticate('discord', {
     successRedirect: '/dashboard'
 }));
 
+router.get('/logout', (req, res) => {
+    if(req.user) {
+        req.logout();
+        res.redirect('/');
+    } else {
+        res.redirect('/');
+    }
+});
+
+function isAuthorized(req, res, next) {
+    if (req.user) {
+        console.log("User is authorized.");
+        next();
+    } 
+    else {
+        console.log("User is not logged in.");
+        res.redirect('/')
+    }
+}
 module.exports = router;
