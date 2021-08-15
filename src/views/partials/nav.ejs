@@ -1,13 +1,10 @@
+<body>
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <figure class="image is-64x64" href="https://bulma.io">
         <img class="is-rounded" src="https://cdn.discordapp.com/avatars/<%= discordId %>/<%= useravatar %>.png">
       </figure>
       
-      <a class="navbar-item">
-        <h1>Welcome, <%= username %>!</h1>
-      </a>
-  
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -49,6 +46,12 @@
       </div>
   
       <div class="navbar-end">
+        <figure class="image is-48x48 pt-1" href="https://bulma.io">
+          <img class="is-rounded" src="https://cdn.discordapp.com/avatars/<%= discordId %>/<%= useravatar %>.png">
+        </figure>
+        <a class="navbar-item">
+          <h1>Welcome, <%= username %>!</h1>
+        </a>
         <div class="navbar-item">
           <div class="buttons">
             <form action="/auth/logout">
@@ -60,3 +63,4 @@
       </div>
     </div>
   </nav>
+</body>

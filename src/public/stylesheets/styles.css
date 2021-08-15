@@ -16,3 +16,13 @@
 .my-custom-button {
     
 }
+
+.my-custom-back {
+    background-image: linear-gradient(to bottom right, black, silver);
+    width: 100vw;
+    height: 100vh;
+}
+
+.box {
+    
+}
