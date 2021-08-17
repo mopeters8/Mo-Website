@@ -24,4 +24,86 @@
         </div>
     </section>
 </div>
+
+<div class="tile is-ancestor mt-6 mx-6">
+  <div class="tile is-4 is-vertical is-parent">
+    <div class="tile is-child box">
+      <p class="title">Submit Event</p>
+      <div class="field">
+        <label class="label">Game Name</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Minecraft">
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Event Description</label>
+        <div class="control">
+          <textarea class="textarea" placeholder="Build a lovely town."></textarea>
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Date</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="4-10-01">
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Time (PST)</label>
+        <div class="control">
+          <div class="select">
+            <select>
+              <option>10am</option>
+              <option>11am</option>
+              <option>12pm</option>
+              <option>1pm</option>
+              <option>2pm</option>
+              <option>3pm</option>
+              <option>4pm</option>
+              <option>5pm</option>
+              <option>6pm</option>
+              <option>7pm</option>
+              <option>8pm</option>
+              <option>9pm</option>
+              <option>10pm</option>
+              <option>11pm</option>
+              <option>12am</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <div class="control">
+          <label class="checkbox">
+            <input type="checkbox">
+            I agree to the <a href="#">terms and conditions</a>
+          </label>
+        </div>
+      </div>
+      
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+          <form action="/dashboard/calendar">
+            <button class="button" type="submit">Cancel</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="tile is-parent mr-6">
+    <div class="tile is-child box">
+      <p class="title">Events</p>
+      <p>All suggested events will appear here!</p>
+    </div>
+  </div>
+</div>
+
+
+
+
 <%- include('partials/footer') -%>
