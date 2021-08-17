@@ -43,8 +43,6 @@ app.use('/auth', authRoute);
 app.use('/dashboard', dashboardRoute);
 
 
-
-
 app.use('/', isAuthorized, (req, res) => {
     res.render('home', { })
 
@@ -52,8 +50,7 @@ app.use('/', isAuthorized, (req, res) => {
 
 function isAuthorized(req, res, next) {
     if (req.user) {
-        console.log("User is authorized. ON app.js");
-        req.session.user = 
+        // console.log("User is authorized. ON app.js");
         res.redirect('/dashboard');
     } 
     else {

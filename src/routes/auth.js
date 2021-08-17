@@ -18,11 +18,11 @@ router.get('/logout', (req, res) => {
 
 function isAuthorized(req, res, next) {
     if (req.user) {
-        console.log("User is authorized.");
+        // console.log("User is authorized.");
         next();
     } 
     else {
-        console.log("User is not logged in.");
+        // console.log("User is not logged in.");
         res.redirect('/')
     }
 }
