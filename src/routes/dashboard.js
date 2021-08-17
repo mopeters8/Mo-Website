@@ -43,7 +43,21 @@ router.get('/calendar', isAuthorized, (req, res) => {
         discordemail: avatar,
         guilds: req.user.guilds
     });
-})
+});
+
+router.post('/submit_event', isAuthorized, (req, res, next) => {
+    console.log("here");
+    let userInput = {
+        event_name: req.body.event_name,
+        event_desc: req.body.event_desc,
+        event_date: req.body.event_date,
+        event_time: req.body.event_time,
+        event_agree: req.body.event_agree
+    };
+    console.log(userInput);
+    res.redirect('./calendar')
+});
+
 
 router.get('/settings', isAuthorized, (req, res) => { //NOT /DASHBOARD BECAUSE WE ALREADY REGISTERED / DASHBOARD.
     res.send("oh you logged in my boy")

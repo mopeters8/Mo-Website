@@ -1,4 +1,5 @@
 require('dotenv').config();
+var bodyParser = require('body-parser');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -6,6 +7,10 @@ const session = require('express-session');
 const passport = require('passport');
 const discordStrategy = require('./strategies/discordstrategy');
 const path = require('path');
+
+
+app.use(bodyParser.urlencoded({ extended : false }))
+app.use(bodyParser.json())
 
 // MongoDB
 const db = require('./database/database');
@@ -37,14 +42,18 @@ app.use(passport.session());
 app.use('/auth', authRoute);
 app.use('/dashboard', dashboardRoute);
 
+
+
+
 app.use('/', isAuthorized, (req, res) => {
-    res.render('home', { 
-    })
+    res.render('home', { })
+
 });
 
 function isAuthorized(req, res, next) {
     if (req.user) {
-        console.log("User is authorized.");
+        console.log("User is authorized. ON app.js");
+        req.session.user = 
         res.redirect('/dashboard');
     } 
     else {
